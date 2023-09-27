@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
 
+    public IEnumerator Timer()
+    {
+        
+        yield return new WaitForSeconds(2.0f);
+        
+    }
+
     private void FixedUpdate()
     {
         //movement
@@ -33,7 +41,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine(Timer());
+        #region SelectPlayers
+
         // input
         if (isPlayerOne)
         {
@@ -62,7 +72,10 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
-  
+
+        #endregion
+        
+        
     }
 
     
