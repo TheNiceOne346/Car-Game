@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    [SerializeField]
     public GameObject FinishMenu;
+    
     // Start is called before the first frame update
     void Start()
     {

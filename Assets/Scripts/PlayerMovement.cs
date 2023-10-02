@@ -23,14 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rbcar2D;
 
     private Vector2 movement;
+    CountDown countDown;
 
-    public IEnumerator Timer()
+    public void Awake()
     {
-        
-        yield return new WaitForSeconds(2.0f);
-        
+        countDown = FindFirstObjectByType<CountDown>();    
     }
-
     private void FixedUpdate()
     {
         //movement
@@ -41,7 +39,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Timer());
+        if (countDown.startTimer > 0) 
+        {
+            moveSpeed = 0;
+        }
+        else if (countDown.startTimer <= 0)
+        {
+            moveSpeed = 5;
+        }
         #region SelectPlayers
 
         // input
@@ -74,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         #endregion
-        
         
     }
 
