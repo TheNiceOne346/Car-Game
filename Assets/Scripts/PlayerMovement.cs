@@ -8,45 +8,51 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("PlayerSettings")]
-    [SerializeField]
-    public float moveSpeed = 5f;
-    [Space]
-    
-    [Header("WhichPlayer")]
-    public bool isPlayerOne;
+    [Header("PlayerSettings")] [SerializeField]
+    public float moveSpeed;
+
+    [Space] [Header("WhichPlayer")] public bool isPlayerOne;
     public bool isPlayerTwo;
-    
-    [Header("Rotation")]
-    [SerializeField] 
-    public float rotationSpeed;
+
+    [Header("Rotation")] [SerializeField] public float rotationSpeed;
     public Rigidbody2D rbcar2D;
 
     private Vector2 movement;
     CountDown countDown;
+    public bool slowDown;
 
     public void Awake()
     {
-        countDown = FindFirstObjectByType<CountDown>();    
+        countDown = FindFirstObjectByType<CountDown>();
     }
+
     private void FixedUpdate()
     {
         //movement
         rbcar2D.MovePosition(rbcar2D.position + moveSpeed * Time.fixedDeltaTime * movement);
 
+        //rbcar2D.velocity = transform.forward * movement.y;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (countDown.startTimer > 0) 
+        if (countDown.startTimer > 0)
         {
             moveSpeed = 0;
         }
         else if (countDown.startTimer <= 0)
         {
-            moveSpeed = 5;
+            if (slowDown)
+            {
+                moveSpeed = 3;
+            }
+            else
+            {
+                moveSpeed = 5;
+            }
         }
+
         #region SelectPlayers
 
         // input
@@ -55,32 +61,36 @@ public class PlayerMovement : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             movement.Normalize();
-       
+
             // rotating player depending on movement direction
             if (movement != Vector2.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-                transform.rotation = 
+                transform.rotation =
                     Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
-            
-        }else if (isPlayerTwo)
+        }
+        else if (isPlayerTwo)
         {
             movement.x = Input.GetAxisRaw("HorizontalSecond");
             movement.y = Input.GetAxisRaw("VerticalSecond");
-            
+
             if (movement != Vector2.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-                transform.rotation = 
+                transform.rotation =
                     Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
-            
         }
 
         #endregion
-        
-    }
 
-    
+
+    }
+    public IEnumerator SlowDown()
+    {
+        slowDown = true;
+        yield return new WaitForSeconds(2);
+        slowDown = false;
+    }
 }

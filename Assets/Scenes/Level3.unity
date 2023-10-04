@@ -2412,11 +2412,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2117154525904928392, guid: 88de0de57af8456449f5464e5cfdfc0e, type: 3}
       propertyPath: isPlayerOne
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2117154525904928392, guid: 88de0de57af8456449f5464e5cfdfc0e, type: 3}
       propertyPath: isPlayerTwo
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2117154525904928392, guid: 88de0de57af8456449f5464e5cfdfc0e, type: 3}
       propertyPath: rotationSpeed

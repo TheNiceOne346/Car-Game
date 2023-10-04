@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 2117154525904928392}
   - component: {fileID: 3809826494373507085}
   - component: {fileID: 2721861494081157958}
+  - component: {fileID: 2321040159203652003}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +147,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2117154525904928392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,10 +161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  isPlayerOne: 0
+  isPlayerOne: 1
   isPlayerTwo: 0
-  rotationSpeed: 0
+  rotationSpeed: 720
   rbcar2D: {fileID: 60473240873348108}
+  slowDown: 0
 --- !u!61 &3809826494373507085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -322,3 +324,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &2321040159203652003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735336450572857693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339f9ecdb98c04c459d6d7dbd9734456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 882060440500675662}
+  colabulletPrefab: {fileID: 8877675580171030238, guid: 6f751db5e22c42841bd343fb4a7c51b0, type: 3}
+  bulletForce: 20
+  currentAmmo: 0
+  maxAmmo: 5
