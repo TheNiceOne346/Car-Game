@@ -2606,6 +2606,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 2321040159203652003, guid: 88de0de57af8456449f5464e5cfdfc0e, type: 3}
+      propertyPath: maxAmmo
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2490993906323005588, guid: 88de0de57af8456449f5464e5cfdfc0e, type: 3}
       propertyPath: m_Color.b
       value: 1
