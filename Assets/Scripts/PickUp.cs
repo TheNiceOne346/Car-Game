@@ -12,16 +12,10 @@ public class PickUp : MonoBehaviour
     {
         shooting = GetComponent<Shooting>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // If pickup finds tag car then set current ammo to max ammo then destroy game object.
         if (other.gameObject.CompareTag("Car"))
         {
             other.gameObject.GetComponent<Shooting>().currentAmmo = 

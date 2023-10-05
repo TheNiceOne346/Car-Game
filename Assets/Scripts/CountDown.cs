@@ -15,23 +15,12 @@ public class CountDown : MonoBehaviour
     {
         startTimer = countDown;
     }
-
-    public IEnumerator Timer()
-    {
-
-        yield return new WaitForSeconds(0.5f);
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
+        #region StartCountDown
         if (startTimer > 0 ) 
         {
             startTimer -= Time.deltaTime;   
@@ -42,9 +31,16 @@ public class CountDown : MonoBehaviour
             countText.gameObject.SetActive( false );    
         }
         
-
+        #endregion
+        
         countText.text = " " + startTimer.ToString("0");
 
         StartCoroutine(Timer());
+    }
+    public IEnumerator Timer()
+    {
+        //using a IEnumerator to make the game frezze each level 3 seconds but 0,5 seconds through every update of numbers
+        yield return new WaitForSeconds(0.5f);
+
     }
 }

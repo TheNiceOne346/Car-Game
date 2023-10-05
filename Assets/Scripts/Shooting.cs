@@ -16,6 +16,7 @@ public class Shooting : MonoBehaviour
     public float bulletForce = 20f;
     public float currentAmmo;
     public float maxAmmo;
+    
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -27,7 +28,8 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        #region PlayerFire
+         //if player press button its shooting and using hasplayerAmmo.
         if (playerMovement.isPlayerOne)
         {
             if (Input.GetButtonDown("Fire1") && hasPlayerAmmo)
@@ -53,7 +55,10 @@ public class Shooting : MonoBehaviour
             }
 
         }
+
+        #endregion
         
+        //checking current ammo
         if (currentAmmo > 0)
         {
             hasPlayerAmmo = true;
@@ -65,6 +70,7 @@ public class Shooting : MonoBehaviour
     }
     void Shoot()
     {
+        //Spawning the bullet and get force and the firepoint postion etc.
         GameObject colaBullet = Instantiate(colabulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb2D = colaBullet.GetComponent<Rigidbody2D>();
         rb2D.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
@@ -73,6 +79,9 @@ public class Shooting : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+       // if (playerMovement.isPlayerOne) return;
+       // if (playerMovement.isPlayerTwo) return;
+      
         if (other.gameObject.CompareTag("colaBullet"))
         {
             Debug.Log("carhit");

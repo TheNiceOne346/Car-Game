@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Countdown when player gets hit the movespeed moves from 3 to 5 or reverse
         if (countDown.startTimer > 0)
         {
             moveSpeed = 0;
@@ -89,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public IEnumerator SlowDown()
     {
+        // IEnumerator created to slow down the player for 2 seconds.
         slowDown = true;
         yield return new WaitForSeconds(2);
         slowDown = false;

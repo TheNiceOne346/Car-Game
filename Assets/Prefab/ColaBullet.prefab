@@ -172,3 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distancebeforedestroy: 3
+  boxCollider: {fileID: 87806967684876938}
