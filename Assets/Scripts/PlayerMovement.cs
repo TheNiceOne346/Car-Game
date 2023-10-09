@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,12 +12,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("PlayerSettings")] [SerializeField]
     public float moveSpeed;
 
-    [Space] [Header("WhichPlayer")] public bool isPlayerOne;
+    [Space] [Header("WhichPlayer")] 
+    
+    public bool isPlayerOne;
     public bool isPlayerTwo;
 
-    [Header("Rotation")] [SerializeField] public float rotationSpeed;
+    [Header("Rotation")] [SerializeField] 
+    
+    public float rotationSpeed;
     public Rigidbody2D rbcar2D;
-
+    
     private Vector2 movement;
     CountDown countDown;
     public bool slowDown;
@@ -29,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //movement
-        rbcar2D.MovePosition(rbcar2D.position + moveSpeed * Time.fixedDeltaTime * movement);
+       rbcar2D.MovePosition(rbcar2D.position + moveSpeed * Time.fixedDeltaTime * movement);
 
         //rbcar2D.velocity = transform.forward * movement.y;
     }
@@ -37,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region CountDown/Timer
         // Countdown when player gets hit the movespeed moves from 3 to 5 or reverse
         if (countDown.startTimer > 0)
         {
@@ -53,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
                 moveSpeed = 5;
             }
         }
+        #endregion
 
         #region SelectPlayers
 
@@ -86,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
 
         #endregion
 
-
     }
     public IEnumerator SlowDown()
     {
@@ -95,4 +101,5 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(2);
         slowDown = false;
     }
+
 }

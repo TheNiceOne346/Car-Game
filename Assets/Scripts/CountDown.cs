@@ -5,8 +5,10 @@ using TMPro;
 
 public class CountDown : MonoBehaviour
 {
+    [Header("TextReferens")]
     public TMP_Text countText;
 
+    [Header("Timer")]
     public float countDown = 3;
     public float startTimer;
    

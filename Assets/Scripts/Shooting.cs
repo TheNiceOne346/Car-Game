@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-
+    [Header("Referens")]
+    PlayerMovement playerMovement;
     public Transform firePoint;
     public GameObject colabulletPrefab;
 
     private bool hasPlayerAmmo;
-    PlayerMovement playerMovement;
-
+   
+    [Header("BulletSettings")]
     public float bulletForce = 20f;
     public float currentAmmo;
     public float maxAmmo;
@@ -23,7 +24,6 @@ public class Shooting : MonoBehaviour
         currentAmmo = maxAmmo;
 
     }
-
 
     // Update is called once per frame
     void Update()
@@ -57,7 +57,8 @@ public class Shooting : MonoBehaviour
         }
 
         #endregion
-        
+
+        #region PlayerAmmo
         //checking current ammo
         if (currentAmmo > 0)
         {
@@ -66,7 +67,7 @@ public class Shooting : MonoBehaviour
         {
             hasPlayerAmmo = false;
         }
-        
+        #endregion 
     }
     void Shoot()
     {
