@@ -23,7 +23,7 @@ When creating the shooting script I took insperation from brackeys video TOP DOW
 
 # [[unity version 2022.3.8f1](https://unity.com/releases/editor/whats-new/2022.3.8)](Unity Verison )
 
-1# Referenses and Websites Ive used
+# Referenses and Websites Ive used
 
 Asset
 Car and Colabullet made by Linus Lind.
