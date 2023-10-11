@@ -21,7 +21,7 @@ When creating the shooting script I took insperation from brackeys video TOP DOW
 2. I wanted to do so when every new level there is a timer on 321 only problem was when I first made the code , the text would move away from the script so i made a if statement to check the starttimer and to set the counttext to false.
 3.  My biggest problem was the movement. Since I hadnt coded for about 4-5 years ago and only learned very simple coding then, its easy to forget how you write code and etc. So I started to watch brackeys turtorials on how to write and also try to understand what everything does. After some reaserch and turtorials I got a working movement script. Exept for the car didnt rotate like I wanted to do. I didnt know how to fixed that so I started to google and using youtube to look on how to solve the issue. AFter some time I end upp knowing more about Quaternion and used Quaternion.Lookrotation to make it rotate. When playing I felt like it gave me a diffrent feeling on movement that I liked. It felt like Tron and something special. But I ended up feeling more I want more to be a car in rotation, so I tried used velocity and unfortenly I didnt find a solution that felt good enough for the game in my knowlodge. The Math ive used in the game is based on Quaternion. Quaterninon in simple terms helps you figure out how to turn your object (like a car, player or camera ) so that it faces a specific direction in 3D space while keeping its "up" in the right position how ever even if its more suitable for 3D i made it so It works in my 2D.
 
-# unity version 2022.3.8f1
+# [[unity version 2022.3.8f1](https://unity.com/releases/editor/whats-new/2022.3.8)](Unity Verison )
 
 1# Referenses and Websites Ive used
 
